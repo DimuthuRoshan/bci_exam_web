@@ -1,0 +1,202 @@
+body{
+    padding-top:100px;
+}
+.navbar-inverse{
+    background-color: #428bca !important;
+    border-color: blue !important;
+    color: #fff;
+}
+a.navbar-brand{
+    color: #fff !important;
+}
+div.question-section{
+    width: 100%;
+    height: auto;
+    border: 2px #ddd solid;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    background: #fff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-top: 4%;
+}
+div.question-section > div.heading{
+    width: auto;
+    height: auto;
+    background: #fff;
+    position: absolute;
+    left:20px;
+    top: -15px;
+    padding: 5px 10px;
+    text-align: left;
+}
+div.question-section > div.heading > h3{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: #555;
+    text-transform: uppercase;
+}
+div.panel{
+   margin: 10px auto !important; 
+}
+div.panel-heading > h3{
+    margin: 0;
+    padding: 0;
+    color: #428bca;
+    font-size: 20px;
+}
+.well{
+    padding: 12px !important;
+    margin-bottom: 25px !important;
+    background: #f9f9f9;
+    box-shadow: none;
+    border-color: #f1f1f1;
+    border: 0px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+}
+div.studentinfo-timer{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    background-color: azure;
+}
+.fa-user{
+    font-size: 70px;
+    color: #ccc;
+    margin-top: -5px;
+}
+.studentinfo-timer p {
+    margin: 0;
+    padding: 0;
+}
+
+div.question-palette{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    background-color:floralwhite;
+    margin-top: 10px;
+}
+div.question-palette p{
+    margin: 0;
+    padding: 0;
+}
+div.question-palette > ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+div.question-palette > ul > li{
+    float: left;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: #eee;
+    margin: 9px;
+    border-radius: 100%;
+}
+/*div.question-palette > ul > li:first-child{
+    background-color: crimson;
+    color: #fff;
+}
+div.question-palette > ul > li:nth-child(3){
+    background-color: forestgreen;
+    color: #fff;
+}
+div.question-palette > ul > li:nth-child(5){
+    background-color: forestgreen;
+    color: #fff;
+}
+div.question-palette > ul > li:nth-child(10){
+    background-color: forestgreen;
+    color: #fff;
+}*/
+div.question-palette > ul > li.visited{
+    background-color: crimson;
+    color: #fff;
+}
+div.question-palette > ul > li.not-answered{
+    background-color: #eee;
+    color: #fff;
+}
+div.question-palette > ul > li.answered{
+    background-color:forestgreen;
+    color: #fff;
+}
+div.color-hint{
+    margin-top: 20px;
+}
+div.understand-palette{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    background-color:floralwhite;
+    margin-top: 10px;
+}
+div.understand-palette > p > span.visited{
+     width: 20px;
+     height:20px;
+    display: block;
+    background-color: crimson;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+div.understand-palette > p > span.answered{
+     width: 20px;
+     height:20px;
+    display: block;
+    background-color: forestgreen;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+div.understand-palette > p > span.not-visited{
+     width: 20px;
+     height:20px;
+    display: block;
+    background-color: #eee;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+div.student-details p{
+    margin: 0;
+    padding: 0;
+    margin: 10px auto;
+}
+
+
+
+
+
+
+
