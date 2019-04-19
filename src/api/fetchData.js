@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function getToken(getTokenOnSuccess,getTokenOnError) {
+export function getToken(getTokenOnSuccess, getTokenOnError) {
 
     let config = {
         headers: {
@@ -12,7 +12,7 @@ export function getToken(getTokenOnSuccess,getTokenOnError) {
         "password": "admin",
         "rememberMe": false,
         "username": "admin"
-    },config)
+    }, config)
         .then(function (response) {
             getTokenOnSuccess(response);
         })
@@ -21,18 +21,35 @@ export function getToken(getTokenOnSuccess,getTokenOnError) {
         });
 }
 
-export function processExam(onSuccess,onError,token){
+export function processExam(onSuccess, onError, token) {
     let config = {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer '+token
+            'Authorization': 'Bearer ' + token
         }
     };
 
     axios.post('http://localhost:8080/api/process-exams', {
         "examId": "ENT-2019-Q1",
         "studentId": "2356"
-    },config)
+    }, config)
+        .then(function (response) {
+            onSuccess(response);
+        })
+        .catch(function (error) {
+            onError(error);
+        });
+}
+
+export function loginUser(onSuccess, onError, token, student) {
+    let config = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    };
+
+    axios.get('http://localhost:8080/api/loggins/' + student.userId + '/' + student.regId, config)
         .then(function (response) {
             onSuccess(response);
         })
