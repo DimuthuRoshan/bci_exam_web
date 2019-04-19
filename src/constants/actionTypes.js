@@ -1,6 +1,12 @@
 const ACTION_TYPES = {
     INITIAL_STATE : {
         SET_INITIAL_STATE :"SET_INITIAL_STATE"
+    },
+    APP_CONFIG_DATA:{
+        SET_TOKEN:"SET_TOKEN"
+    },
+    QUESTION_DATA:{
+        SET_QUESTION_LIST:"SET_QUESTION_LIST"
     }
 };
 

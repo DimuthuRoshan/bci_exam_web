@@ -21,7 +21,7 @@ div.question-section{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
-    margin-top: 8%;
+    margin-top: 2%;
 }
 div.question-section > div.heading{
     width: auto;
@@ -91,7 +91,7 @@ div.question-palette{
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
     background-color:floralwhite;
-    margin-top: 10px;
+    margin-top: 9%;
 }
 div.question-palette p{
     margin: 0;
@@ -144,9 +144,9 @@ div.question-palette > ul > li.answered{
 div.color-hint{
     margin-top: 20px;
 }
-div.understand-palette{
+div.understand-palette-custom{
     width: 100%;
-    height: auto;
+    height: 63px;
     padding: 20px;
     box-sizing: border-box;
     border: 2px solid #ddd;
@@ -155,9 +155,9 @@ div.understand-palette{
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
     background-color:floralwhite;
-    margin-top: 10px;
+    margin-top: 9%;
 }
-div.understand-palette > p > span.visited{
+div.understand-palette-custom > p > span.visited{
      width: 20px;
      height:20px;
     display: block;
@@ -166,8 +166,18 @@ div.understand-palette > p > span.visited{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
+    float: right;
+    margin-right: 25px;
 }
-div.understand-palette > p > span.answered{
+
+.color-label-width{
+    width: 120px;
+    float: left;
+}
+
+
+div.understand-palette-custom > p > span.answered{
+    float: right;
      width: 20px;
      height:20px;
     display: block;
@@ -176,8 +186,10 @@ div.understand-palette > p > span.answered{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
+    margin-right: 25px;
 }
-div.understand-palette > p > span.not-visited{
+div.understand-palette-custom > p > span.not-visited{
+    float: right;
      width: 20px;
      height:20px;
     display: block;
@@ -211,5 +223,8 @@ div.student-details p{
     margin-top: 6%;
 }
 
+.understand-palette-margin-top {
+    margin-top: 8%;
+}
 
 

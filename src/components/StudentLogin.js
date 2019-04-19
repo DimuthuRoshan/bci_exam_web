@@ -68,7 +68,11 @@ class StudentLogin extends Component{
             return(this.generateHTML());
         }
         else {
-            return(<QuestionPanel/>);
+            return(<QuestionPanel
+                examPaper = {this.props.examPaper}
+                id_token={this.props.id_token}
+                actions={this.props.actions}>
+            </QuestionPanel>);
         }
 
     }

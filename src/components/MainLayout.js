@@ -5,8 +5,11 @@ import '../style/MainLayout/style.css';
 class MainLayout extends Component {
   render() {
     return (<div className="main-wrapper">
-      {/*this.props.text*/}
-      <StudentLogin></StudentLogin>
+      <StudentLogin
+          examPaper={this.props.examPaper}
+          id_token = {this.props.id_token}
+          actions={this.props.actions}  >
+      </StudentLogin>
     </div>);
   }
 }
