@@ -12,46 +12,58 @@ class StudentLogin extends Component {
 
         this.state = {
             login_state: false,
+            studentId: null,
             userName: null,
             regId: null,
-            loginError: null
+            loginError: null,
+            examType: null,
         };
 
         this.onClickLogin = this.onClickLogin.bind(this);
         this.generateHTML = this.generateHTML.bind(this);
         this.OnStudentIdChange = this.OnStudentIdChange.bind(this);
         this.OnRegIdChange = this.OnRegIdChange.bind(this);
+        this.OnSelectExam = this.OnSelectExam.bind(this);
+        // this.getStudentData = this.getStudentData.bind(this);
+    }
+
+    /*getStudentData(studentId){
+        //let _that = this;
+        //getStudentData(onSuccess,onError,this.props.id_token,studentId)
+    }*/
+
+    OnSelectExam(event) {
+        console.log(event.target.value)
+        this.setState({examType: event.target.value});
     }
 
     OnStudentIdChange(event) {
-        console.log("Event", event.target.value);
         this.setState({userName: event.target.value});
 
     }
 
     OnRegIdChange(event) {
-        console.log("Event", event.target.value);
         this.setState({regId: event.target.value});
     }
 
     onClickLogin() {
 
-        /*console.log("onClickLogin");
-        console.log("User Name",this.state.userName);
-        console.log("User Name",this.state.regId);*/
         let _that = this;
         let student = {
             userId: this.state.userName,
-            regId: this.state.regId
+            regId: this.state.regId,
+            examType: this.state.examType
         }
         loginUser(onSuccess, onError, this.props.id_token, student);
 
         function onSuccess(response) {
-
-            console.log("response.data", response.data)
-            console.log("User Name", _that.state.userName)
             if (response.data.loginId === _that.state.userName) {
-                _that.setState({login_state: true});
+                _that.setState(
+                    {
+                        login_state: true,
+                        studentId: response.data.loginId
+                    });
+                _that.props.actions.setLoginStudent(response.data);
             } else {
                 _that.setState({loginError: "Invalid user"});
             }
@@ -94,6 +106,13 @@ class StudentLogin extends Component {
                                                placeholder="Registration Number" onChange={this.OnRegIdChange}
                                                autoComplete="off"/>
 
+                                        <select id="course_id" onChange={this.OnSelectExam}>
+                                            <option defaultValue="Select A Exam">Select A Exam</option>
+                                            <option value="ENT-2019-Q1">ENT-2019-Q1</option>
+                                            <option value="TEST_EXAM">TEST_EXAM</option>
+                                        </select>
+
+
                                         <div className="login-bottom">
                                             <div className="submit">
                                                 <button className="submit-button" onClick={this.onClickLogin}>STUDENT
@@ -121,6 +140,9 @@ class StudentLogin extends Component {
             return (<QuestionPanel
                 examPaper={this.props.examPaper}
                 id_token={this.props.id_token}
+                studentId={this.state.studentId}
+                examType={this.state.examType}
+                student={this.props.student}
                 actions={this.props.actions}>
             </QuestionPanel>);
         }

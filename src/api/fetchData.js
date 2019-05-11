@@ -49,7 +49,25 @@ export function loginUser(onSuccess, onError, token, student) {
         }
     };
 
-    axios.get('http://localhost:8080/api/loggins/' + student.userId + '/' + student.regId, config)
+    axios.get('http://localhost:8080/api/loggins/' + student.userId + '/' + student.regId + '/' + student.examType, config)
+        .then(function (response) {
+            onSuccess(response);
+        })
+        .catch(function (error) {
+            onError(error);
+        });
+}
+
+export function getStudentData(onSuccess, onError, token, studentId){
+
+    let config = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    };
+
+    axios.get('http://localhost:8080/api/students/' + studentId , config)
         .then(function (response) {
             onSuccess(response);
         })

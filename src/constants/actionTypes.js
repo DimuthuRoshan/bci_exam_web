@@ -7,6 +7,9 @@ const ACTION_TYPES = {
     },
     QUESTION_DATA:{
         SET_QUESTION_LIST:"SET_QUESTION_LIST"
+    },
+    STUDENT_DATA:{
+        SET_STUDENT_LOGIN_DATA:"SET_STUDENT_LOGIN_DATA"
     }
 };
 

@@ -11,3 +11,8 @@ export function setTokenState(payload) {
 export function getQuestuins(payload) {
     return { type: ACTION_TYPES.QUESTION_DATA.SET_QUESTION_LIST, data:payload }
 };
+
+export function setStudentLoginData(payload){
+    console.log("setStudentLoginData",payload);
+    return { type: ACTION_TYPES.STUDENT_DATA.SET_STUDENT_LOGIN_DATA, data:payload }
+}

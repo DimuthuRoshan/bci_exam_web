@@ -9,7 +9,7 @@ select#course_id{
   background-color: transparent;
   padding: 6px;
   margin-top: 15px;
-  width: 100%;
+  width: auto;
   border: none;
   border: 2px solid #c9c9c9;
   border-top-color: transparent;
