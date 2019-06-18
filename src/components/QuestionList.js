@@ -3,10 +3,7 @@ import React, {Component} from 'react';
 import '../style/QuestionList/style.css';
 import '../style/QuestionList/bootstrap.css';
 import '../style/QuestionList/font-awesome.css';
-//import '../style/QuestionList/alert.css';
-//import '../style/QuestionList/theme.css';
 import SingleQuestion from './SingleQuestion';
-
 import FinishedExam from '../components/FinishedExam';
 
 class QuestionList extends Component{
@@ -16,23 +13,34 @@ class QuestionList extends Component{
             { isExamComplete: false ,
                 totalQuestions:0,
                 currentCounter:0,
+                currentQuestionId:null,
+                saveNextBtnIsDisabled:true
             };
         this.generateHTML = this.generateHTML.bind(this);
         this.onSaveClick = this.onSaveClick.bind(this);
+        this.onAnswerSelect = this.onAnswerSelect.bind(this);
     }
 
 
     onSaveClick(){
         console.log("Quest counter ",this.state.currentCounter+1 )
-        console.log("this.props.questions.length ",this.props.questions.length )
+        console.log("this.props.questions.length ",this.props.questions.length );
         if((this.state.currentCounter+1) < this.props.questions.length ){
             let counter = this.state.currentCounter + 1;
-            this.setState({currentCounter:counter});
+            this.setState({
+                currentCounter:counter,
+                currentQuestionId:this.props.questions[counter].questionId,
+                saveNextBtnIsDisabled:true
+            });
         }else{
             this.setState({isExamComplete:true});
         }
+    }
 
-
+    onAnswerSelect(answerId){
+        console.log("QuestionList",answerId)
+        if(answerId && answerId !== null)
+            this.setState({saveNextBtnIsDisabled:false});
     }
 
     /**
@@ -40,6 +48,13 @@ class QuestionList extends Component{
      * @returns {XML}
      */
     generateHTML(){
+
+        var counter = 0;
+        var cssClass = null;
+        const list = this.props.questions.map((question)=>{
+            counter++;
+            return (<li key={question.questionId} id="1" className={cssClass}>{counter}</li>)
+        });
 
         return(<div>
             <nav className="navbar navbar-fixed-top navbar-inverse">
@@ -69,14 +84,16 @@ class QuestionList extends Component{
                             <div className="display-block" id="question-div1">
                                 <div className="panel panel-default">
                                     <div className="panel-heading"><h3>Ouestion No. {this.state.currentCounter+1} Of {this.props.questions.length}</h3></div>
-                                    <SingleQuestion question={this.props.questions[this.state.currentCounter]}/>
+                                    <SingleQuestion
+                                        question={this.props.questions[this.state.currentCounter]}
+                                        onSelectAnswer={this.onAnswerSelect}/>
                                     <div className="panel-footer">
                                         <div className="btn-group pull-left">
                                             <button disabled="disabled" data-id="0" id="prev-button1"  type="button" className="btn btn-info prev-button">Previous Question</button>
                                             <button data-id="2"  type="button" className="btn btn-danger next-button">Skip &amp; Next</button>
                                         </div>
                                         <div className="pull-right">
-                                            <button type="button" onClick={this.onSaveClick}  className="btn btn-success">Save &amp; Next</button>
+                                            <button type="button" onClick={this.onSaveClick}  className={this.state.saveNextBtnIsDisabled ? "btn btn-success disabled":"btn btn-success"}>Save &amp; Next</button>
                                         </div>
                                     </div>
                                 </div>
@@ -102,14 +119,7 @@ class QuestionList extends Component{
                                 <div className="question-palette">
                                     <p><strong>View Question Palette : </strong></p>
                                     <ul className="palette">
-                                        <li id="1" className="visited">1</li>
-                                        <li id="2" className="">2</li>
-                                        <li id="3" className="">3</li>
-                                        <li id="4" className="">4</li>
-                                        <li id="1" className="">5</li>
-                                        <li id="2" className="">6</li>
-                                        <li id="3" className="">7</li>
-                                        <li id="4" className="">8</li>
+                                        {list}
                                     </ul>
                                     <div className="clearfix"></div>
                                 </div>
@@ -122,8 +132,14 @@ class QuestionList extends Component{
         </div>);
     }
 
+    /**
+     * React lifeCycle method
+     */
+    componentDidMount(){
+        this.setState({currentQuestionId:this.props.questions[0].questionId});
+    }
+
     render(){
-console.log("ffffffffff",this.props.questions);
         if(!this.state.isExamComplete){
             return(this.generateHTML());
         }else{

@@ -113,22 +113,7 @@ div.question-palette > ul > li{
     margin: 9px;
     border-radius: 100%;
 }
-/*div.question-palette > ul > li:first-child{
-    background-color: crimson;
-    color: #fff;
-}
-div.question-palette > ul > li:nth-child(3){
-    background-color: forestgreen;
-    color: #fff;
-}
-div.question-palette > ul > li:nth-child(5){
-    background-color: forestgreen;
-    color: #fff;
-}
-div.question-palette > ul > li:nth-child(10){
-    background-color: forestgreen;
-    color: #fff;
-}*/
+
 div.question-palette > ul > li.visited{
     background-color: crimson;
     color: #fff;
@@ -227,4 +212,8 @@ div.student-details p{
     margin-top: 8%;
 }
 
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
 
